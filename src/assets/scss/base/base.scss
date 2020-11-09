@@ -1,0 +1,30 @@
+// Base
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  min-width: 320px;
+  font-family: $Roboto;
+  color: $color-oxford-blue;
+  font-weight: 400;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+}
+
+a,
+button {
+  transition: 0.2s ease-out;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}

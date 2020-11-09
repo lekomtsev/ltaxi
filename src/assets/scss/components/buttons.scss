@@ -1,0 +1,25 @@
+.button {
+  display: inline-block;
+  border: none;
+  border-radius: 3px;
+  padding: 0 20px;
+  background: $color-gallery;
+}
+
+.button--primary {
+  color: #fff;
+  background: $color-fruit-salad;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.button--md {
+  height: 33px;
+  line-height: 31px;
+}
