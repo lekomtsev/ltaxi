@@ -11,7 +11,7 @@ class Main extends React.Component {
   render() {
 
     return (
-      <div className="main">
+      <main className="main">
         <div className="container">
           {/*Order*/}
           {/*Display*/}
@@ -20,7 +20,7 @@ class Main extends React.Component {
             onClick={this.handleSubmit}
           >Заказать</button>
         </div>
-      </div>
+      </main>
     )
   }
 }

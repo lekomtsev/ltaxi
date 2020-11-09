@@ -1,7 +1,6 @@
 // Base
 
 * {
-  margin: 0;
   padding: 0;
   outline: none;
   box-sizing: border-box;
@@ -17,6 +16,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
+
+  background: $color-gallery;
+  min-height: 100vh;
 }
 
 a,

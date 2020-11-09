@@ -4,8 +4,8 @@ import './Footer.scss'
 function Footer() {
   return (
     <footer className="footer">
-      <div className="container">
-        Footer
+      <div className="footer__container container">
+        &copy; Created by <a href="https://jsmaster.ru">jsmaster.ru</a>
       </div>
     </footer>
   )
