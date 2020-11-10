@@ -47,8 +47,8 @@
         "car_number": "Е234КУ",
         "driver_name": "Деточкин",
         "driver_phone": "7788",
-        "lat": 56.855532,
-        "lon": 53.217462,
+        "lat": 56.8595433,
+        "lon": 53.2139637,
         "distance": 700
       },
       {
@@ -57,10 +57,10 @@
         "car_model": "Solaris",
         "car_color": "белый",
         "car_number": "Ф567АС",
-        "driver_name": "Петров",
+        "driver_name": "Алексеев",
         "driver_phone": "8899",
-        "lat": 56.860581,
-        "lon": 53.209223,
+        "lat": 56.8659819,
+        "lon": 53.2011237,
         "distance": 650
       },
       {
@@ -71,8 +71,8 @@
         "car_number": "Ф567АС",
         "driver_name": "Петров",
         "driver_phone": "8899",
-        "lat": 56.860581,
-        "lon": 53.209223,
+        "lat": 56.860181,
+        "lon": 53.209023,
         "distance": 1200
       },
       {
@@ -81,10 +81,10 @@
         "car_model": "Focus",
         "car_color": "фиолетовый",
         "car_number": "А123БС",
-        "driver_name": "Николаев",
+        "driver_name": "Наумов",
         "driver_phone": "845678",
-        "lat": 56.86210195091477,
-        "lon": 53.206568410247804,
+        "lat": 56.86219195091477,
+        "lon": 53.206508410247804,
         "distance": 1300
       },
       {
@@ -93,9 +93,9 @@
         "car_model": "Focus",
         "car_color": "фиолетовый",
         "car_number": "А123БС",
-        "driver_name": "Николаев",
+        "driver_name": "Никитин",
         "driver_phone": "845678",
-        "lat": 56.86210195091477,
+        "lat": 56.86218195091477,
         "lon": 53.206568410247804,
         "distance": 1000
       },
@@ -105,10 +105,10 @@
         "car_model": "Lacetti",
         "car_color": "синий",
         "car_number": "Е234КУ",
-        "driver_name": "Деточкин",
+        "driver_name": "Иванов",
         "driver_phone": "7788",
-        "lat": 56.855532,
-        "lon": 53.217462,
+        "lat": 56.855132,
+        "lon": 53.217062,
         "distance": 1100
       }
     ]

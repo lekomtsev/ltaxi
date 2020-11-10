@@ -13,8 +13,8 @@ export default function Crews (props) {
       <div className="crew__body">
         <div className="crew__title">{props.title}</div>
         <div className="crew__description">
-          <div className="crew__color">{/*{props.color}*/}</div>
-          <div className="crew__distance">{/*{props.distance}*/} м</div>
+          <div className="crew__color">{props.color}</div>
+          <div className="crew__distance">{props.distance} м</div>
         </div>
       </div>
     </div>

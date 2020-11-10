@@ -8,6 +8,10 @@
   border-radius: 2px;
 }
 
+.crew + .crew {
+  margin-top: 3px;
+}
+
 .crew__header {
   width: 40px;
 }
@@ -20,7 +24,7 @@
 }
 
 .crew__title {
-  font-size: 17px;
+  font-weight: 600;
 }
 
 .crew__description {
@@ -31,9 +35,10 @@
 }
 
 .crew__color {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .crew__distance {
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 600;
 }

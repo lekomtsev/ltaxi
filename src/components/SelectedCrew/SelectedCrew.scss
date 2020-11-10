@@ -1,0 +1,37 @@
+.selected-crew {
+  min-height: 130px;
+}
+
+.selected-crew__label {
+  display: block;
+  margin-bottom: 9px;
+}
+
+.selected-crew__auto {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 12px;
+  background: #fff;
+  border-radius: 3px;
+  width: 210px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.selected-crew__auto-title {
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.selected-crew__auto-color {
+  font-size: 12px;
+  text-align: right;
+}
+
+.selected-crew__auto-number {
+  margin-top: 10px;
+  padding: 6px;
+  background: #e4e4e4;
+  border-radius: 3px;
+  text-align: center;
+}

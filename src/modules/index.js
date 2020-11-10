@@ -4,6 +4,6 @@ import searchFrom from './SearchFrom/search-from'
 import map from './Map/map'
 
 export default combineReducers({
-  searchFrom,
+  searchFrom: searchFrom,
   map
 })

@@ -8,9 +8,7 @@ import {connect} from 'react-redux'
 class Display extends React.Component {
 
   render() {
-    console.log(this.props.handleCrews, 'this props')
-
-    const isEmptyArrayCrews = this.props.handleCrews.length
+    const crews = this.props.handleCrews
 
     return (
       <div className="display">
@@ -19,7 +17,7 @@ class Display extends React.Component {
         </div>
         <div className="display__crews">
           {
-            isEmptyArrayCrews && this.props.handleCrews.map((car, index) => {
+            !!crews.length && crews.map((car, index) => {
               return (
                 // Экипажи
                 <Crews
@@ -38,10 +36,9 @@ class Display extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state, 'state from Display')
+  // console.log(state, 'state from Display')
 
   return {
-    // inputValue: state.searchInput.inputValue,
     handleCrews: state.map.preparedCrews
   }
 }
