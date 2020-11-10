@@ -1,8 +1,9 @@
 // Здесь подключаем все reducer
 import { combineReducers } from 'redux'
 import searchFrom from './SearchFrom/search-from'
-// import handleCrews from './reducers/map'
+import map from './Map/map'
 
 export default combineReducers({
-  searchFrom
+  searchFrom,
+  map
 })

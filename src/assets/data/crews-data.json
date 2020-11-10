@@ -1,0 +1,116 @@
+{
+  "code": 0,
+  "description": "OK",
+  "data": {
+    "crews_info": [
+      {
+        "crew_id": 1,
+        "car_mark": "Chevrolet",
+        "car_model": "Lacetti",
+        "car_color": "синий",
+        "car_number": "Е234КУ",
+        "driver_name": "Деточкин",
+        "driver_phone": "7788",
+        "lat": 56.855532,
+        "lon": 53.217462,
+        "distance": 600
+      },
+      {
+        "crew_id": 2,
+        "car_mark": "Hyundai",
+        "car_model": "Solaris",
+        "car_color": "белый",
+        "car_number": "Ф567АС",
+        "driver_name": "Петров",
+        "driver_phone": "8899",
+        "lat": 56.860581,
+        "lon": 53.209223,
+        "distance": 500
+      },
+      {
+        "crew_id": 3,
+        "car_mark": "Ford",
+        "car_model": "Focus",
+        "car_color": "фиолетовый",
+        "car_number": "А123БС",
+        "driver_name": "Николаев",
+        "driver_phone": "845678",
+        "lat": 56.86210195091477,
+        "lon": 53.206568410247804,
+        "distance": 900
+      },
+      {
+        "crew_id": 4,
+        "car_mark": "Chevrolet",
+        "car_model": "Lacetti",
+        "car_color": "синий",
+        "car_number": "Е234КУ",
+        "driver_name": "Деточкин",
+        "driver_phone": "7788",
+        "lat": 56.855532,
+        "lon": 53.217462,
+        "distance": 700
+      },
+      {
+        "crew_id": 5,
+        "car_mark": "Hyundai",
+        "car_model": "Solaris",
+        "car_color": "белый",
+        "car_number": "Ф567АС",
+        "driver_name": "Петров",
+        "driver_phone": "8899",
+        "lat": 56.860581,
+        "lon": 53.209223,
+        "distance": 650
+      },
+      {
+        "crew_id": 6,
+        "car_mark": "Hyundai",
+        "car_model": "Solaris",
+        "car_color": "белый",
+        "car_number": "Ф567АС",
+        "driver_name": "Петров",
+        "driver_phone": "8899",
+        "lat": 56.860581,
+        "lon": 53.209223,
+        "distance": 1200
+      },
+      {
+        "crew_id": 7,
+        "car_mark": "Ford",
+        "car_model": "Focus",
+        "car_color": "фиолетовый",
+        "car_number": "А123БС",
+        "driver_name": "Николаев",
+        "driver_phone": "845678",
+        "lat": 56.86210195091477,
+        "lon": 53.206568410247804,
+        "distance": 1300
+      },
+      {
+        "crew_id": 8,
+        "car_mark": "Ford",
+        "car_model": "Focus",
+        "car_color": "фиолетовый",
+        "car_number": "А123БС",
+        "driver_name": "Николаев",
+        "driver_phone": "845678",
+        "lat": 56.86210195091477,
+        "lon": 53.206568410247804,
+        "distance": 1000
+      },
+      {
+        "crew_id": 9,
+        "car_mark": "Chevrolet",
+        "car_model": "Lacetti",
+        "car_color": "синий",
+        "car_number": "Е234КУ",
+        "driver_name": "Деточкин",
+        "driver_phone": "7788",
+        "lat": 56.855532,
+        "lon": 53.217462,
+        "distance": 1100
+      }
+    ]
+  }
+}

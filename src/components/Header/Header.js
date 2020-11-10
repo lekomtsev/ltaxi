@@ -5,7 +5,7 @@ function Header() {
   return (
     <header className="header">
       <div className="container">
-        <h2 className="header__title">Детали заказа</h2>
+        <div className="logo">TaxiPortal</div>
       </div>
     </header>
   )

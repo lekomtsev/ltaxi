@@ -1,0 +1,39 @@
+.crew {
+  position: relative;
+  display: flex;
+  padding: 12px;
+  height: 70px;
+  border: 1px solid #c6c6c6;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.crew__header {
+  width: 40px;
+}
+
+.crew__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-left: 12px;
+}
+
+.crew__title {
+  font-size: 17px;
+}
+
+.crew__description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.crew__color {
+  font-size: 13px;
+}
+
+.crew__distance {
+  font-size: 15px;
+}
