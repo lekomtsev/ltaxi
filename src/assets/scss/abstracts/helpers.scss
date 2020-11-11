@@ -8,3 +8,14 @@
   padding: 0 20px;
   max-width: 1140px;
 }
+
+input[type="text"].error {
+  border: 1px solid $color-razzmatazz;
+  border-radius: 2px;
+}
+
+.error__hint {
+  margin-top: 5px;
+  font-size: 12px;
+  color: $color-razzmatazz;
+}

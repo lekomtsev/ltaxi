@@ -13,7 +13,7 @@ class Display extends React.Component {
     return (
       <div className="display">
         <div className="display__map">
-          <YandexMap/>
+          <YandexMap />
         </div>
         <div className="display__crews">
           {
@@ -36,7 +36,6 @@ class Display extends React.Component {
 }
 
 function mapStateToProps(state) {
-  // console.log(state, 'state from Display')
 
   return {
     handleCrews: state.map.preparedCrews

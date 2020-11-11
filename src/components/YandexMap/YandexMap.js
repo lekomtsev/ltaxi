@@ -32,9 +32,8 @@ function YandexMap(props) {
   const ymaps = React.useRef(null)
   const placemarkRef = React.useRef(null)
   const mapRef = React.useRef(null)
-  // const [setAddress] = React.useState('')
-  // const [address, setAddress] = React.useState('')
-
+  // const errorClass = !props.preparedCrews.length ? 'error' : null
+  // const mapClasses = ['map', errorClass].filter(Boolean).join(' ')
 
   /**
    * Обработка клика по карте
@@ -51,7 +50,7 @@ function YandexMap(props) {
       placemarkRef.current = new ymaps.current.Placemark(coords,
         {iconCaption: 'loading..'},
         {
-          preset: 'islands#violetDotIconWithCaption',
+          preset: 'islands#yellowDotIconWithCaption',
           draggable: true
         }
       )
@@ -106,7 +105,6 @@ function YandexMap(props) {
         const userSelectedAddress = [street, buildingNumber].filter(Boolean).join(', ')
 
         // setAddress(userSelectedAddress)
-        console.log(userSelectedAddress, 'userSelectedAddress')
 
         // Заполняем адрес в инпуте
         // Возможно нужно будет добавлять город
@@ -127,7 +125,6 @@ function YandexMap(props) {
    */
 
   const dispatchCrews = (coords, userSelectedAddress) => {
-    // console.log('handleDispatchCrew')
     // Формируем данные для отправки на сервак
     const dataSendServer = getDataSendServer(coords, userSelectedAddress)
 
@@ -233,7 +230,6 @@ function YandexMap(props) {
 }
 
 function mapStateToProps(state) {
-  console.log(state, 'state from Yandex Map')
 
   return {
     preparedCrews: state.map.preparedCrews,

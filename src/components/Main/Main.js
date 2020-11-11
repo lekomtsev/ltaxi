@@ -10,8 +10,10 @@ class Main extends React.Component {
     super(props)
 
     this.state = {
-      isValid: false,
-      inputValue: ''
+      isValid: true,
+      inputValue: '',
+      isFirstClick: true,
+      isFirstRender: true,
     }
   }
 
@@ -20,61 +22,88 @@ class Main extends React.Component {
    */
 
   handleSubmit = () => {
-    // console.log(evt, 'evt - button')
-    // Проверяем на пустоту
-    // инпут и массив экипажей
-    console.log( this.props.handleCrews, 'this.props.handleCrews' )
+    // console.log( this.props.handleCrews, 'this.props.handleCrews' )
 
-    this.checkValidateOrder()
+    const searchInput = document.querySelector('#search-input')
+    const inputValue = searchInput.value.trim()
 
-    // const inputValue = this.props.inputValue
-    // console.log(crews, inputValue, 'crews - inputValue')
+    this.checkValidateOrder(inputValue)
 
-    /*if (this.isValidOrder()) {
+    if (this.state.isValid
+      && !this.state.isFirstClick
+      && !this.state.isFirstRender) {
+
       console.log( 'ОТПРАВКА ЗАЯВКИ !!!' )
+
     } else {
-      console.log( 'ВЫКЛЮЧАЕМ КНОПКУ !!!' )
+      console.log( 'Кидаем ошибку под инпутом !!!' )
+
       this.setState({ isValidate: false })
-    }*/
-  }
-
-  checkValidateOrder = () => {
-    const inputValue = document.querySelector('#search-input').value.trim()
-    console.log(inputValue, 'inputValue')
-    // const isValidate = this.state.isValidate
-    const crews = this.props.handleCrews
-
-    if (inputValue && crews.length) {
-      this.setState({ isValid: true })
-    } else {
-      this.setState({ isValid: false })
     }
 
-    console.log( 'checkValidateOrder' )
+    !this.state.isFirstClick || this.setState({ isFirstClick: false })
   }
 
+  /**
+   * Проверка валидации полей
+   */
+
+  checkValidateOrder = (value) => {
+    if (typeof value === 'undefined') {
+      value = document.querySelector('#search-input').value.trim()
+    }
+
+    const crews = this.props.handleCrews
+    this.setState({ inputValue: value })
+
+    value && crews.length
+      ? this.setState({ isValid: true })
+      : this.setState({ isValid: false })
+
+      // console.log( 'checkValidateOrder' )
+  }
+
+  /**
+   * Обработчик котрый вызывается сразу после обновления
+   *
+   * Проверяем обновления экипажей, если есть изменения
+   * проводим проверку чтобы изменить state
+   * @param prevProps
+   */
+
+  componentDidUpdate(prevProps) {
+
+    if (this.props.handleCrews !== prevProps.handleCrews) {
+      this.checkValidateOrder()
+    }
+
+    !this.state.isFirstRender || this.setState({ isFirstRender: false })
+  }
+
+  /**
+   * Обработка ошибок инпут и карта
+   *  - подкрасить инпут и вывести внизу текст об ошибке
+   *  - подкарсить карту и вывести ошибку вверху карты
+   */
+
+  handleErrors() {}
+
   render() {
-    console.log( this.state, 'this.state Main' )
-
-
-    let button
-
-    // if (this.isValidOrder()) {
-    // if ('232') {
-      button = <button className="main__button button button--primary button--md"
-        onClick={this.handleSubmit} >Заказать</button>
-    // } else {
-      // button = <span className="main__button button button--primary button--md">Заказать</span>
-    // }
-
-    console.log( this.props, 'props from Main' )
+    const disabled = !this.state.isValid ? 'disabled' : ''
 
     return (
       <main className="main">
         <div className="container">
-          <Order />
+          <Order
+            inputValueChange={this.checkValidateOrder}
+            props={{
+              isValid: this.state.isValid,
+              inputValue: this.state.inputValue
+            }}
+          />
           <Display />
-          {button}
+          <button className="main__button button button--primary button--md"
+            onClick={this.handleSubmit} disabled={disabled}>Заказать</button>
         </div>
       </main>
     )
@@ -82,7 +111,6 @@ class Main extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state, 'state from Main')
 
   return {
     handleCrews: state.map.preparedCrews,

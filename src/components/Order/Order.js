@@ -7,16 +7,20 @@ import { connect } from 'react-redux'
 class Order extends React.Component {
 
   handleSearch = (evt) => {
-    // console.log(evt, 'evt - handleSearch')
-    console.log(this.props, 'evt - handleSearch')
+    // Записываем значение в хранилище
+    // this.props.handleInputSearch(evt.target.value)
 
-    // Записывае значение в хранилище
-    this.props.handleInputSearch(evt.target.value)
+    // this.props.onFilterTextChange(evt.target.value)
+    this.props.inputValueChange(evt.target.value)
   }
 
   render() {
     const { handleCrews } = this.props
-    console.log(!!handleCrews, 'handleCrews')
+    const { isValid, inputValue } = this.props.props
+    // console.log(this.props, 'this.props - Order')
+
+    const errorClass = (!isValid && !inputValue) ? 'error' : null
+    const classInput = ['search__input', errorClass].filter(Boolean).join(' ')
 
     return (
       <div className="order">
@@ -24,12 +28,15 @@ class Order extends React.Component {
           <div className="search order__item">
             <div className="search__label">Откуда</div>
             <input
-              className="search__input"
+              className={classInput}
               placeholder="Введите адрес"
               id="search-input"
               type="text"
               onChange={this.handleSearch}
             />
+            {
+              (!isValid && !inputValue) ? (<div className="error__hint">Введите адрес в поле!</div>) : null
+            }
           </div>
           <div className="order__item selected-crew">
             <div className="selected-crew__label">Подходящий экипаж</div>
@@ -44,11 +51,10 @@ class Order extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state, 'state from Order')
 
   return {
     handleCrews: state.map.preparedCrews,
-    inputValue: state.searchFrom.inputValue,
+    // inputValue: state.searchFrom.inputValue,
   }
 }
 
