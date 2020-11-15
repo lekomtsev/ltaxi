@@ -8,18 +8,19 @@ class Order extends React.Component {
 
   handleSearch = (evt) => {
     // Записываем значение в хранилище
-    // this.props.handleInputSearch(evt.target.value)
+    this.props.handleInputSearch(evt.target.value)
 
     // this.props.onFilterTextChange(evt.target.value)
-    this.props.inputValueChange(evt.target.value)
+    // this.props.dataSearch(evt.target.value)
   }
 
   render() {
     const { handleCrews } = this.props
-    const { isValid, inputValue } = this.props.props
+    // const { isValid, inputValue } = this.props.props
     // console.log(this.props, 'this.props - Order')
 
-    const errorClass = (!isValid && !inputValue) ? 'error' : null
+    // const errorClass = (!isValid && !inputValue) ? 'error' : null
+    const errorClass = null
     const classInput = ['search__input', errorClass].filter(Boolean).join(' ')
 
     return (
@@ -35,7 +36,7 @@ class Order extends React.Component {
               onChange={this.handleSearch}
             />
             {
-              (!isValid && !inputValue) ? (<div className="error__hint">Введите адрес в поле!</div>) : null
+              /*(!isValid && !inputValue) ? (<div className="error__hint">Введите адрес в поле!</div>) : null*/
             }
           </div>
           <div className="order__item selected-crew">
@@ -52,9 +53,11 @@ class Order extends React.Component {
 
 function mapStateToProps(state) {
 
+  console.log(state, 'state from ORDER')
+
   return {
     handleCrews: state.map.preparedCrews,
-    // inputValue: state.searchFrom.inputValue,
+    inputValue: state.searchFrom.inputValue,
   }
 }
 

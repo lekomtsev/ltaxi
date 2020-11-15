@@ -5,6 +5,9 @@ import YandexMap from '../YandexMap/YandexMap'
 import Crews from '../Crews/Crews'
 import {connect} from 'react-redux'
 
+// import { createOrder } from '../Main/Main'
+
+
 class Display extends React.Component {
 
   render() {
@@ -12,6 +15,15 @@ class Display extends React.Component {
 
     return (
       <div className="display">
+
+        {/*<createOrder.Consumer>
+          {
+            (clicked) => {
+              console.log( clicked, 'clicked' )
+            }
+          }
+        </createOrder.Consumer>*/}
+
         <div className="display__map">
           <YandexMap />
         </div>

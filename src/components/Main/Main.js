@@ -3,17 +3,27 @@ import React from 'react'
 import './Main.scss'
 import Order from '../Order/Order'
 import Display from '../Display/Display'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
+
+// export const createOrder = React.createContext(false)
 
 class Main extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      isValid: true,
       inputValue: '',
-      isFirstClick: true,
-      isFirstRender: true,
+      isClickedOrderButton: false,
+
+      /*validate: {
+        // Проверка поля, проверка экипажей,
+        // проверка правильности ввода в инпуте...
+        isValid: true,
+        isFirstClick: true,
+        isFirstRender: true,
+      }*/
+
+
     }
   }
 
@@ -23,32 +33,40 @@ class Main extends React.Component {
 
   handleSubmit = () => {
     // console.log( this.props.handleCrews, 'this.props.handleCrews' )
+    // const searchInput = document.querySelector('#search-input')
+    // const inputValue = searchInput.value.trim()
+    // this.checkValidateOrder(inputValue)
 
-    const searchInput = document.querySelector('#search-input')
-    const inputValue = searchInput.value.trim()
 
-    this.checkValidateOrder(inputValue)
+    this.setState({
+      isClickedOrderButton: true
+    })
 
-    if (this.state.isValid
+    console.log( this.state.isClickedOrderButton, 'this.state.isClickedOrderButton' )
+
+    // this.props.submitOrder(this.state.isClickedOrderButton)
+
+
+    /*if (this.state.isValid
       && !this.state.isFirstClick
       && !this.state.isFirstRender) {
-
-      console.log( 'ОТПРАВКА ЗАЯВКИ !!!' )
+      console.log('ОТПРАВКА ЗАЯВКИ !!!')
 
     } else {
-      console.log( 'Кидаем ошибку под инпутом !!!' )
-
-      this.setState({ isValidate: false })
+      console.log('Кидаем ошибку под инпутом !!!')
+      this.setState({isValidate: false})
     }
-
-    !this.state.isFirstClick || this.setState({ isFirstClick: false })
+    !this.state.isFirstClick || this.setState({isFirstClick: false})*/
   }
 
   /**
    * Проверка валидации полей
+   *
+   * Нужно перепилить обработку ошибок
+   *
    */
 
-  checkValidateOrder = (value) => {
+  /*checkValidateOrder = (value) => {
     if (typeof value === 'undefined') {
       value = document.querySelector('#search-input').value.trim()
     }
@@ -61,7 +79,7 @@ class Main extends React.Component {
       : this.setState({ isValid: false })
 
       // console.log( 'checkValidateOrder' )
-  }
+  }*/
 
   /**
    * Обработчик котрый вызывается сразу после обновления
@@ -69,15 +87,21 @@ class Main extends React.Component {
    * Проверяем обновления экипажей, если есть изменения
    * проводим проверку чтобы изменить state
    * @param prevProps
+   *
+   * Рассмотреть альтернативу - shouldComponentUpdate(nextProps, nextState)
    */
 
   componentDidUpdate(prevProps) {
 
     if (this.props.handleCrews !== prevProps.handleCrews) {
-      this.checkValidateOrder()
+      // this.checkValidateOrder()
     }
 
-    !this.state.isFirstRender || this.setState({ isFirstRender: false })
+    // !this.state.isFirstRender || this.setState({ isFirstRender: false })
+
+    console.log( this.state.isClickedOrderButton, 'this.state.isClickedOrderButton' )
+
+    this.props.submitOrder(this.state.isClickedOrderButton)
   }
 
   /**
@@ -86,24 +110,35 @@ class Main extends React.Component {
    *  - подкарсить карту и вывести ошибку вверху карты
    */
 
-  handleErrors() {}
+  handleErrors() {
+  }
 
   render() {
-    const disabled = !this.state.isValid ? 'disabled' : ''
+    // const disabled = !this.state.isValid ? 'disabled' : ''
+    const disabled = false
 
     return (
       <main className="main">
         <div className="container">
+
+
           <Order
-            inputValueChange={this.checkValidateOrder}
+            dataSearch={this.dataSearch}
             props={{
-              isValid: this.state.isValid,
-              inputValue: this.state.inputValue
+              // isValid: this.state.isValid,
+              // inputValue: this.state.inputValue
             }}
           />
+
           <Display />
+
+          {/*<createOrder.Provider value={this.state.isClickedOrderButton}>
+          </createOrder.Provider>*/}
+
           <button className="main__button button button--primary button--md"
-            onClick={this.handleSubmit} disabled={disabled}>Заказать</button>
+                  onClick={this.handleSubmit}
+                  disabled={disabled}>Заказать
+          </button>
         </div>
       </main>
     )
@@ -112,10 +147,25 @@ class Main extends React.Component {
 
 function mapStateToProps(state) {
 
+  console.log(state, 'props from Main' )
+
   return {
     handleCrews: state.map.preparedCrews,
     inputValue: state.searchFrom.inputValue,
+    isClickedOrderButton: state.main.isClickedOrderButton,
   }
 }
 
-export default connect(mapStateToProps)(Main)
+function mapDispatchToProps(dispatch) {
+
+  // const data = this.state.isClickedOrderButton
+
+  return {
+    submitOrder: (data) => dispatch({
+      type: 'submitOrder',
+      value: data
+    })
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main)
