@@ -1,10 +1,10 @@
 import React from 'react'
 import {Router, Route, Switch} from 'react-router'
-import {connect} from 'react-redux'
-import {history} from '../../helpers'
+import { connect } from 'react-redux'
+import { history } from '../../helpers'
 import Layout from '../../layouts/Layout/Layout'
-import {PrivateRoute} from '../../routes'
-import Login from '../../components/Login/Login'
+import { PrivateRoute } from '../../routes'
+import { Login } from '../../components/Login/Login'
 
 const routes = [
   {
