@@ -22,8 +22,6 @@ class Main extends React.Component {
         isFirstClick: true,
         isFirstRender: true,
       }*/
-
-
     }
   }
 
@@ -37,21 +35,17 @@ class Main extends React.Component {
     // const inputValue = searchInput.value.trim()
     // this.checkValidateOrder(inputValue)
 
-
-    this.setState({
+    /*this.setState({
       isClickedOrderButton: true
     })
 
-    console.log( this.state.isClickedOrderButton, 'this.state.isClickedOrderButton' )
+    console.log( this.state.isClickedOrderButton, 'this.state.isClickedOrderButton' )*/
 
     // this.props.submitOrder(this.state.isClickedOrderButton)
-
-
     /*if (this.state.isValid
       && !this.state.isFirstClick
       && !this.state.isFirstRender) {
       console.log('ОТПРАВКА ЗАЯВКИ !!!')
-
     } else {
       console.log('Кидаем ошибку под инпутом !!!')
       this.setState({isValidate: false})
@@ -92,16 +86,27 @@ class Main extends React.Component {
    */
 
   componentDidUpdate(prevProps) {
-
     if (this.props.handleCrews !== prevProps.handleCrews) {
       // this.checkValidateOrder()
     }
-
     // !this.state.isFirstRender || this.setState({ isFirstRender: false })
+    // console.log( this.state.isClickedOrderButton, 'this.state.isClickedOrderButton' )
+    // this.props.submitOrder(this.state.isClickedOrderButton)
+  }
 
-    console.log( this.state.isClickedOrderButton, 'this.state.isClickedOrderButton' )
+  componentDidMount() {
+    console.log('componentDidMount')
 
-    this.props.submitOrder(this.state.isClickedOrderButton)
+  }
+
+  componentWillUnmount() {
+    console.log('componentWillUnmount')
+
+    this.setState({
+      isClickedOrderButton: false
+    })
+
+    console.log( this.state.isClickedOrderButton, 'isClickedOrderButton' )
   }
 
   /**
@@ -115,7 +120,7 @@ class Main extends React.Component {
 
   render() {
     // const disabled = !this.state.isValid ? 'disabled' : ''
-    const disabled = false
+    // const disabled = this.state
 
     return (
       <main className="main">
@@ -123,11 +128,9 @@ class Main extends React.Component {
 
 
           <Order
-            dataSearch={this.dataSearch}
-            props={{
-              // isValid: this.state.isValid,
-              // inputValue: this.state.inputValue
-            }}
+            dataSearch={ this.dataSearch }
+            // isClickedOrderButton={ this.state.isClickedOrderButton }
+            onButtonClick={this.handleSubmit.bind(this)}
           />
 
           <Display />
@@ -137,7 +140,7 @@ class Main extends React.Component {
 
           <button className="main__button button button--primary button--md"
                   onClick={this.handleSubmit}
-                  disabled={disabled}>Заказать
+                  disabled={ this.state.isClickedOrderButton }>Заказать
           </button>
         </div>
       </main>

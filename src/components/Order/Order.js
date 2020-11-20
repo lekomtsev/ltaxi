@@ -5,6 +5,11 @@ import SelectedCrew from '../SelectedCrew/SelectedCrew'
 import { connect } from 'react-redux'
 
 class Order extends React.Component {
+  constructor(props) {
+    super(props)
+
+  }
+
 
   handleSearch = (evt) => {
     // Записываем значение в хранилище
@@ -14,10 +19,24 @@ class Order extends React.Component {
     // this.props.dataSearch(evt.target.value)
   }
 
+  componentDidMount() {
+    console.log('componentDidMount')
+
+    const { onButtonClick } = this.props
+
+    console.log(onButtonClick, 'onButtonClick')
+
+    if (onButtonClick()) {
+      console.log('click')
+    }
+
+  }
+
+
   render() {
     const { handleCrews } = this.props
     // const { isValid, inputValue } = this.props.props
-    // console.log(this.props, 'this.props - Order')
+    console.log(this.props, 'this.props - Order')
 
     // const errorClass = (!isValid && !inputValue) ? 'error' : null
     const errorClass = null
