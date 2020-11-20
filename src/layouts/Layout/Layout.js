@@ -1,28 +1,29 @@
+/* eslint react/prop-types: 0 */
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Switch, Route, Redirect } from 'react-router'
 
 // creates a beautiful scrollbar
-import PerfectScrollbar from 'perfect-scrollbar';
-import 'perfect-scrollbar/css/perfect-scrollbar.css';
+/*import PerfectScrollbar from 'perfect-scrollbar';
+import 'perfect-scrollbar/css/perfect-scrollbar.css';*/
 
 // @material-ui/core components
-import withStyles from '@material-ui/core/styles/withStyles'
+// import withStyles from '@material-ui/core/styles/withStyles'
 
 // core components
-import Header from "components/Header/Header.jsx'
-import Footer from "components/Footer/Footer.jsx'
-import Sidebar from "components/Sidebar/Sidebar.jsx'
+import Header from '../../components/Header/Header.js'
+// import Footer from "components/Footer/Footer.js'
+// import Sidebar from "components/Sidebar/Sidebar.js'
 
-import DashboardRoutes from "routes/DashboardRoute.jsx'
+import DashboardRoutes from '../../routes/DashboardRoute.js'
 
-import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx'
+// import dashboardStyle from 'assets/jss/material-dashboard-react/layouts/dashboardStyle.js'
 
 // import image from "assets/img/sidebar-2.jpg'
 // import logo from "assets/img/reactlogo.png'
 
-import { loginActions }  from 'modules/Auth/authentication'
-import { connect } from 'react-redux'
+import { loginActions }  from '../../modules/Auth/authentication'
+// import { connect } from 'react-redux'
 
 const switchRoutes = (
   <Switch>
@@ -65,19 +66,20 @@ class Layout extends React.Component {
   }
 
   componentDidMount() {
-    if (navigator.platform.indexOf('Win') > -1) {
+    /*if (navigator.platform.indexOf('Win') > -1) {
       const ps = new PerfectScrollbar(this.refs.mainPanel);
     }
-    window.addEventListener('resize', this.resizeFunction);
+    window.addEventListener('resize', this.resizeFunction);*/
   }
 
   componentDidUpdate(e) {
-    if (e.history.location.pathname !== e.location.pathname) {
+    /*if (e.history.location.pathname !== e.location.pathname) {
       this.refs.mainPanel.scrollTop = 0;
       if (this.state.mobileOpen) {
         this.setState({ mobileOpen: false });
       }
-    }
+    }*/
+    console.log(e)
   }
 
   componentWillUnmount() {
@@ -85,10 +87,13 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { classes, ...rest } = this.props
+    // const { classes, ...rest } = this.props
+
+    const classes = {}
+
     return (
       <div className={classes.wrapper}>
-        <Sidebar
+        {/*<Sidebar
           routes={DashboardRoutes}
           logoText={'Welcome'}
           // logo={logo}
@@ -97,14 +102,14 @@ class Layout extends React.Component {
           open={this.state.mobileOpen}
           color="blue"
           {...rest}
-        />
-        <div className={classes.mainPanel} ref="mainPanel">
+        />*/}
+        {/*<div className={classes.mainPanel} ref="mainPanel">*/}
+        <div className={classes.mainPanel} >
           <Header
             routes={DashboardRoutes}
             handleDrawerToggle={this.handleDrawerToggle}
             handleLogOut= {this.handleLogOut}
-            {...rest}
-          />
+          />{/*{...rest}*/}
 
           {this.getRoute() ? (
             <div className={classes.content}>
@@ -113,7 +118,7 @@ class Layout extends React.Component {
           ) : (
             <div className={classes.map}>{switchRoutes}</div>
           )}
-          {this.getRoute() ? <Footer /> : null}
+          {/*{this.getRoute() ? <Footer /> : null}*/}
         </div>
       </div>
     );
@@ -124,4 +129,5 @@ Layout.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default connect()(withStyles(dashboardStyle)(Layout))
+// export default connect()(withStyles(dashboardStyle)(Layout))
+export default Layout
