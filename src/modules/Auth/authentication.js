@@ -22,8 +22,11 @@ export const loginActions = {
 
 function login(username, password) {
 
+  console.log(username, password, 'username')
+
   return dispatch => {
-    dispatch(request({ username }));
+
+    dispatch(request({ username }))
 
     userService.login(username, password)
       .then(
@@ -33,6 +36,8 @@ function login(username, password) {
         },
         error => {
           dispatch(failure(error));
+
+          console.log(error, 'error --- authentications')
           // dispatch(alertActions.error(error));
         }
       );

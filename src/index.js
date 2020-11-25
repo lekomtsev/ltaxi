@@ -4,8 +4,11 @@ import App from './components/App/App'
 import { store } from './helpers'
 import { Provider } from 'react-redux'
 // import reportWebVitals from './reportWebVitals'
-
 import './assets/scss/main.scss'
+
+// setup fake backend
+import { configureFakeBackend } from './helpers';
+configureFakeBackend();
 
 ReactDOM.render(
   <React.StrictMode>

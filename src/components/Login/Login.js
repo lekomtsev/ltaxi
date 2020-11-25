@@ -1,7 +1,8 @@
 /* eslint react/prop-types: 0 */
 import React from 'react'
 import LoginPage from '../../views/Login/LoginPage'
-import {connect} from "react-redux";
+import {connect} from 'react-redux'
+import {loginActions}  from '../../modules/Auth/authentication'
 
 class Login extends React.Component {
   constructor(props) {
@@ -12,6 +13,26 @@ class Login extends React.Component {
       password: '',
       submitted: false,
       tempPasswordHidden: false,
+    }
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleChange(evt) {
+    const { name, value } = evt.target;
+    this.setState({ [name]: value });
+  }
+
+  handleSubmit (evt) {
+    evt.preventDefault()
+
+    this.setState({ submitted: true })
+    const { username, password } = this.state
+
+    const { dispatch } = this.props
+    if (username && password) {
+      dispatch(loginActions.login(username, password))
     }
   }
 
@@ -26,6 +47,8 @@ class Login extends React.Component {
         password={password}
         submitted={submitted}
         tempPasswordHidden={tempPasswordHidden}
+        handleChange ={this.handleChange}
+        handleSubmit={this.handleSubmit}
       />
     )
   }

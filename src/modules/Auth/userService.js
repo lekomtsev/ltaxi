@@ -9,11 +9,16 @@ export const userService = {
 
 function login(username, password) {
   // debugger;
+
+  console.log(username, password, 'user service')
+
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password })
   };
+
+  console.log(requestOptions, 'requestOptions')
 
   return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
     .then(handleResponse)
@@ -43,7 +48,13 @@ function getAll() {
 }
 
 function handleResponse(response) {
+
+  console.log(response)
+
   return response.text().then(text => {
+
+    console.log(text)
+
     const data = text && JSON.parse(text);
     if (!response.ok) {
       if (response.status === 401) {

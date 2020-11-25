@@ -1,7 +1,8 @@
 /* eslint react/prop-types: 0 */
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { Switch, Route, Redirect } from 'react-router'
+// import { Switch, Route, Redirect } from 'react-router'
 
 // creates a beautiful scrollbar
 /*import PerfectScrollbar from 'perfect-scrollbar';
@@ -18,31 +19,32 @@ import Header from '../../components/Header/Header.js'
 import DashboardRoutes from '../../routes/DashboardRoute.js'
 
 // import dashboardStyle from 'assets/jss/material-dashboard-react/layouts/dashboardStyle.js'
-
 // import image from "assets/img/sidebar-2.jpg'
 // import logo from "assets/img/reactlogo.png'
 
 import { loginActions }  from '../../modules/Auth/authentication'
-// import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 const switchRoutes = (
   <Switch>
     {DashboardRoutes.map((prop, key) => {
       if (prop.redirect)
         return <Redirect from={prop.path} to={prop.to} key={key} />;
-      return <Route path={prop.path} component={prop.component} key={key} />;
+      return <Route exact path={prop.path} component={prop.component} key={key} />;
     })}
   </Switch>
 );
 
 class Layout extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
+
     this.state = {
       mobileOpen: false
-    };
-    this.resizeFunction = this.resizeFunction.bind(this);
-    this.handleLogOut = this.handleLogOut.bind(this);
+    }
+
+    this.resizeFunction = this.resizeFunction.bind(this)
+    this.handleLogOut = this.handleLogOut.bind(this)
   }
 
   handleLogOut = () => {
@@ -72,14 +74,15 @@ class Layout extends React.Component {
     window.addEventListener('resize', this.resizeFunction);*/
   }
 
-  componentDidUpdate(e) {
+  componentDidUpdate(evt) {
     /*if (e.history.location.pathname !== e.location.pathname) {
       this.refs.mainPanel.scrollTop = 0;
       if (this.state.mobileOpen) {
         this.setState({ mobileOpen: false });
       }
     }*/
-    console.log(e)
+
+    console.log(evt, 'componentDidUpdate - Layout')
   }
 
   componentWillUnmount() {
@@ -87,6 +90,7 @@ class Layout extends React.Component {
   }
 
   render() {
+    console.log(this.props, 'this.props')
     // const { classes, ...rest } = this.props
 
     const classes = {}
@@ -105,6 +109,7 @@ class Layout extends React.Component {
         />*/}
         {/*<div className={classes.mainPanel} ref="mainPanel">*/}
         <div className={classes.mainPanel} >
+
           <Header
             routes={DashboardRoutes}
             handleDrawerToggle={this.handleDrawerToggle}
@@ -125,9 +130,10 @@ class Layout extends React.Component {
   }
 }
 
-Layout.propTypes = {
+/*Layout.propTypes = {
   classes: PropTypes.object.isRequired
-}
+}*/
 
 // export default connect()(withStyles(dashboardStyle)(Layout))
-export default Layout
+// export default Layout
+export default connect()(Layout);

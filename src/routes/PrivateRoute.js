@@ -1,6 +1,7 @@
+/* eslint react/prop-types: 0 */
 import React from 'react'
 import { Route, Redirect } from 'react-router'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 export const PrivateRoute = ({ component: Component }) => (
   localStorage.getItem('user')
@@ -8,7 +9,7 @@ export const PrivateRoute = ({ component: Component }) => (
     : <Redirect to={{ pathname: '/login' }} />
 )
 
-PrivateRoute.propTypes = {
-  component: PropTypes.object
-}
+/*PrivateRoute.propTypes = {
+  component: PropTypes.object.isRequired
+}*/
 

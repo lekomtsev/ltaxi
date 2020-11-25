@@ -6,7 +6,7 @@ import Layout from '../../layouts/Layout/Layout'
 import { PrivateRoute } from '../../routes'
 import { Login } from '../../components/Login/Login'
 
-const routes = [
+/*const routes = [
   {
     path: '/login',
     component: Login
@@ -19,8 +19,7 @@ const routes = [
     path: '/faq',
     component: Login // change to Login
   },
-]
-
+]*/
 
 class App extends React.Component {
   constructor(props) {
@@ -42,11 +41,14 @@ class App extends React.Component {
             <Router history={history}>
               <Switch>
                 {
-                  routes.map((route, index) => {
+                  /*routes.map((route, index) => {
                     return <Route key={index} {...route} />
-                  })
+                  })*/
+
+                  <Route path='/login' component={Login} />
                 }
 
+                {/*<PrivateRoute component={Layout}/>*/}
                 <PrivateRoute component={Layout}/>
               </Switch>
             </Router>

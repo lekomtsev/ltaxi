@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LoginPage = ({loggingIn, username, password, handleSubmit }) => {
+const LoginPage = ({loggingIn, username, password, handleChange, handleSubmit }) => {
   const classes = useStyles()
   const [loading] = React.useState(false);
 
@@ -72,6 +72,16 @@ const LoginPage = ({loggingIn, username, password, handleSubmit }) => {
             autoComplete="email"
             autoFocus
             value={username}
+            inputProps={{
+              type: "email",
+              /*endAdornment: (
+                <InputAdornment position="end">
+                  <Email className={classes.inputIconsColor} />
+                </InputAdornment>
+              ),*/
+              onChange: handleChange,
+              name: "username"
+            }}
           />
           <TextField
             variant="outlined"
@@ -84,6 +94,16 @@ const LoginPage = ({loggingIn, username, password, handleSubmit }) => {
             id="password"
             autoComplete="current-password"
             value={password}
+            inputProps={{
+              type: "password",
+              /*endAdornment: (
+                <InputAdornment position="end">
+                  <Email className={classes.inputIconsColor} />
+                </InputAdornment>
+              ),*/
+              onChange: handleChange,
+              name: "password"
+            }}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}

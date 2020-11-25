@@ -15,6 +15,8 @@ export function configureFakeBackend() {
         if (url.endsWith('/users/authenticate') && options.method === 'POST' ) {
           const params = JSON.parse(options.body)
 
+          console.log(options, 'params from fetch')
+
           const filteredUsers = users.filter(user => {
             return user.username = params.username && user.password === params.password
           })
