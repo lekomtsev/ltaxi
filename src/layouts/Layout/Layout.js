@@ -13,6 +13,7 @@ import 'perfect-scrollbar/css/perfect-scrollbar.css';*/
 
 // core components
 import Header from '../../components/Header/Header.js'
+import Sidebar from '../../components/Sidebar/Sidebar.js'
 // import Footer from "components/Footer/Footer.js'
 // import Sidebar from "components/Sidebar/Sidebar.js'
 
@@ -92,12 +93,11 @@ class Layout extends React.Component {
   render() {
     console.log(this.props, 'this.props')
     // const { classes, ...rest } = this.props
-
     const classes = {}
 
     return (
       <div className={classes.wrapper}>
-        {/*<Sidebar
+        {<Sidebar
           routes={DashboardRoutes}
           logoText={'Welcome'}
           // logo={logo}
@@ -105,8 +105,8 @@ class Layout extends React.Component {
           handleDrawerToggle={this.handleDrawerToggle}
           open={this.state.mobileOpen}
           color="blue"
-          {...rest}
-        />*/}
+          /*{...rest }*/
+        />}
         {/*<div className={classes.mainPanel} ref="mainPanel">*/}
         <div className={classes.mainPanel} >
 

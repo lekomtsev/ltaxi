@@ -48,7 +48,6 @@ class App extends React.Component {
                   <Route path='/login' component={Login} />
                 }
 
-                {/*<PrivateRoute component={Layout}/>*/}
                 <PrivateRoute component={Layout}/>
               </Switch>
             </Router>
